@@ -13,6 +13,7 @@ import type {
   GalleryCategory,
   GalleryImage,
 } from "@/data/gallery";
+import { useLanguage } from "./LanguageProvider";
 
 type GalleryGridProps = {
   images: GalleryImage[];
@@ -20,7 +21,7 @@ type GalleryGridProps = {
 
 type GalleryFilter = "all" | GalleryCategory;
 
-const filters: {
+const defaultFilters: {
   label: string;
   value: GalleryFilter;
 }[] = [
@@ -32,7 +33,7 @@ const filters: {
   { label: "Moments", value: "moments" },
 ];
 
-const categoryLabels: Record<GalleryCategory, string> = {
+const defaultCategoryLabels: Record<GalleryCategory, string> = {
   food: "Food",
   interior: "Interior",
   people: "People",
@@ -43,6 +44,7 @@ const categoryLabels: Record<GalleryCategory, string> = {
 export default function GalleryGrid({
   images,
 }: GalleryGridProps) {
+  const { language } = useLanguage();
   const [activeFilter, setActiveFilter] =
     useState<GalleryFilter>("all");
 
@@ -63,6 +65,26 @@ export default function GalleryGrid({
     selectedIndex !== null
       ? filteredImages[selectedIndex]
       : null;
+  const filters = language === "fr"
+    ? [
+        { label: "Tout", value: "all" as const },
+        { label: "Food", value: "food" as const },
+        { label: "Interieur", value: "interior" as const },
+        { label: "People", value: "people" as const },
+        { label: "Brand", value: "brand" as const },
+        { label: "Moments", value: "moments" as const },
+      ]
+    : defaultFilters;
+  const categoryLabels: Record<GalleryCategory, string> =
+    language === "fr"
+      ? {
+          food: "Food",
+          interior: "Interieur",
+          people: "People",
+          brand: "Brand",
+          moments: "Moments",
+        }
+      : defaultCategoryLabels;
 
   function showPrevious() {
     setSelectedIndex((currentIndex) => {
@@ -173,11 +195,17 @@ export default function GalleryGrid({
       <div className="mb-7 flex items-center justify-between">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">
           {filteredImages.length}{" "}
-          {filteredImages.length === 1 ? "photograph" : "photographs"}
+          {language === "fr"
+            ? filteredImages.length === 1
+              ? "photo"
+              : "photos"
+            : filteredImages.length === 1
+              ? "photograph"
+              : "photographs"}
         </p>
 
         <p className="hidden text-xs font-bold uppercase tracking-[0.2em] text-white/30 sm:block">
-          Select an image to expand
+          {language === "fr" ? "Selectionne une image pour l'ouvrir" : "Select an image to expand"}
         </p>
       </div>
 

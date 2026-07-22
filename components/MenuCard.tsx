@@ -1,36 +1,85 @@
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import type { MenuItem } from "@/data/menu";
+"use client";
 
-type Props = { item: MenuItem; index?: number };
+import type { MenuItem } from "@/data/menu";
+import { useLanguage } from "./LanguageProvider";
+
+type Props = {
+  item: MenuItem;
+  index?: number;
+};
 
 export default function MenuCard({ item, index = 0 }: Props) {
+  const { language } = useLanguage();
+  const categoryLabels = language === "fr"
+    ? {
+        Burgers: "Burgers",
+        Shawarma: "Shawarma",
+        Sides: "Accompagnements",
+        Kids: "Kids",
+        Drinks: "Boissons",
+        Desserts: "Desserts",
+      }
+    : {
+        Burgers: "Burgers",
+        Shawarma: "Shawarma",
+        Sides: "Sides",
+        Kids: "Kids",
+        Drinks: "Drinks",
+        Desserts: "Desserts",
+      };
+
   return (
-    <article className="group relative overflow-hidden rounded-[2rem] border-2 border-moBlack bg-white shadow-card transition duration-300 hover:-translate-y-2 hover:rotate-[.4deg]">
-      <div className="relative aspect-[4/3] overflow-hidden bg-moBlack">
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          className="object-cover transition duration-700 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-        <span className="absolute left-4 top-4 rounded-full bg-moYellow px-3 py-2 text-[10px] font-black uppercase tracking-[.18em] text-moBlack">
-          {item.tag}
+    <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border-2 border-moBlack bg-[#fff8ec] shadow-card transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+      <div className="checkerboard-small h-3" />
+
+      <div className="flex items-center justify-between border-b-2 border-moBlack px-6 py-4">
+        <span className="text-[10px] font-black uppercase tracking-[.22em] text-moRed">
+          {categoryLabels[item.category]}
         </span>
-        <span className="absolute bottom-4 right-4 grid h-12 w-12 place-items-center rounded-full border-2 border-white bg-moRed text-white shadow-neon">
-          <ArrowUpRight size={20} />
-        </span>
+
+        {item.tag && (
+          <span className="rounded-full bg-moYellow px-3 py-1.5 text-[9px] font-black uppercase tracking-[.18em] text-moBlack">
+            {language === "fr" && item.tag === "New" ? "Nouveau" : item.tag}
+          </span>
+        )}
       </div>
-      <div className="p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="font-display text-4xl text-moRed">0{index + 1}</span>
-          <span className="h-[2px] flex-1 bg-moBlack/15" />
-          <span className="text-[10px] font-black uppercase tracking-[.2em] text-black/45">{item.category}</span>
+
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex items-start gap-4">
+          <span className="font-display text-4xl leading-none text-moRed">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+
+          <div className="pt-1">
+            <h3 className="font-display text-3xl uppercase leading-[.95] text-moBlack">
+              {item.name}
+            </h3>
+
+            {item.description && (
+              <p className="mt-4 text-sm leading-6 text-black/60">
+                {item.description}
+              </p>
+            )}
+          </div>
         </div>
-        <h3 className="font-display text-3xl uppercase leading-none">{item.name}</h3>
-        <p className="mt-4 leading-6 text-black/60">{item.description}</p>
+
+        <div className="mt-auto space-y-2 pt-7">
+          {item.prices.map((price, priceIndex) => (
+            <div
+              key={`${item.name}-${price.label ?? priceIndex}`}
+              className="flex items-end justify-between gap-4 rounded-xl bg-moBlack px-4 py-3 text-white"
+            >
+              <span className="text-[10px] font-black uppercase tracking-[.18em] text-white/60">
+                {price.label ?? (language === "fr" ? "Prix" : "Price")}
+              </span>
+
+              <span className="font-display text-2xl leading-none text-moYellow">
+                {price.value}
+                <span className="ml-1 text-xs">DT</span>
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </article>
   );

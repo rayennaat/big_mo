@@ -103,6 +103,10 @@ textarea {
   animation: marquee 24s linear infinite;
 }
 
+.group:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 .float-slow {
   animation: float 6s ease-in-out infinite;
 }

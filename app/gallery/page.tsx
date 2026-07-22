@@ -1,21 +1,11 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowDown, ArrowRight, Camera } from "lucide-react";
+"use client";
 
 import GalleryGrid from "@/components/GalleryGrid";
+import { useLanguage } from "@/components/LanguageProvider";
 import { galleryImages } from "@/data/gallery";
 
-import signatureBurger from "@/public/images/signature-burger.jpg";
-import neonLogo from "@/public/images/neon-logo.jpg";
-
-export const metadata: Metadata = {
-  title: "Gallery | BIG MO",
-  description:
-    "Explore BIG MO burgers, neon signs, restaurant interiors, guests and atmosphere.",
-};
-
 export default function GalleryPage() {
+  const { language } = useLanguage();
   return (
     <main className="min-h-screen overflow-hidden bg-moBlack text-white">
       {/* Gallery collection */}
@@ -29,18 +19,19 @@ export default function GalleryPage() {
           <div className="mb-14 grid gap-6 border-b border-white/10 pb-10 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.32em] text-moYellow">
-                The complete collection
+                {language === "fr" ? "La collection complete" : "The complete collection"}
               </p>
 
               <h2 className="mt-4 font-display text-5xl uppercase leading-[0.9] sm:text-7xl">
-                Pick a mood.
-                <span className="block text-moRed">Open a frame.</span>
+                {language === "fr" ? "Choisis une humeur." : "Pick a mood."}
+                <span className="block text-moRed">{language === "fr" ? "Ouvre une image." : "Open a frame."}</span>
               </h2>
             </div>
 
             <p className="max-w-md text-base leading-7 text-white/55">
-              Select a category or open any photograph to explore the restaurant
-              in fullscreen.
+              {language === "fr"
+                ? "Choisis une categorie ou ouvre n'importe quelle photo pour explorer le restaurant en plein ecran."
+                : "Select a category or open any photograph to explore the restaurant in fullscreen."}
             </p>
           </div>
 

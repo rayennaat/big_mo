@@ -3,6 +3,7 @@ import FeaturedMenu from "@/components/FeaturedMenu";
 import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import ReservationCTA from "@/components/ReservationCTA";
+import ReviewsSection from "@/components/ReviewsSection";
 import StoryPreview from "@/components/StoryPreview";
 import Ticker from "@/components/Ticker";
 
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Atmosphere />
       <Gallery />
       <ReservationCTA />
+      <ReviewsSection />
     </>
   );
 }

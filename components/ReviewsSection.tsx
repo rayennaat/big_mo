@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "./LanguageProvider";
+import Reveal from "./Reveal";
 
 const reviews = [
   {
@@ -52,7 +53,7 @@ export default function ReviewsSection() {
   return (
     <section className="w-full bg-moBlack">
       <div className="grid min-h-[760px] lg:grid-cols-2">
-        <div className="relative min-h-[360px] lg:min-h-full">
+        <Reveal variant="left" className="relative min-h-[360px] lg:min-h-full">
           <Image
             src="/images/mo2.jpg"
             alt="BIG MO burger and restaurant detail"
@@ -60,8 +61,8 @@ export default function ReviewsSection() {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-        </div>
-        <div className="flex items-center px-6 py-16 sm:px-10 lg:px-16 lg:py-20 xl:px-20">
+        </Reveal>
+        <Reveal variant="right" delay={120} className="flex items-center px-6 py-16 sm:px-10 lg:px-16 lg:py-20 xl:px-20">
           <div className="w-full">
             <p className="text-xs font-black uppercase tracking-[.32em] text-moYellow">{language === "fr" ? "Avis" : "Reviews"}</p>
             <div className="relative mt-10 min-h-[400px] overflow-hidden">
@@ -127,7 +128,7 @@ export default function ReviewsSection() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

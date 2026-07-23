@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Facebook, Instagram, Phone } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 import Logo from "./Logo";
+import Reveal from "./Reveal";
 
 export default function Footer() {
   const { language } = useLanguage();
@@ -34,19 +35,19 @@ export default function Footer() {
     <footer className="bg-moBlack px-5 pb-8 pt-16 text-white lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-2">
+          <Reveal variant="left" className="lg:col-span-2">
             <Logo />
             <p className="mt-5 max-w-md leading-7 text-white/55">{copy.description}</p>
-          </div>
-          <div>
+          </Reveal>
+          <Reveal variant="up" delay={100}>
             <h3 className="text-xs font-black uppercase tracking-[.25em] text-moRed">{copy.explore}</h3>
             <div className="mt-5 grid gap-3 text-sm font-bold uppercase tracking-[.12em] text-white/70">
               <Link href="/menu" className="hover:text-white">Menu</Link>
               <Link href="/story" className="hover:text-white">{copy.story}</Link>
               <Link href="/reservations" className="hover:text-white">{copy.reservations}</Link>
             </div>
-          </div>
-          <div>
+          </Reveal>
+          <Reveal variant="right" delay={180}>
             <h3 className="text-xs font-black uppercase tracking-[.25em] text-moRed">{copy.details}</h3>
             <div className="mt-5 grid gap-4 text-sm text-white/65">
               <a href="tel:+21670161928" className="flex gap-3 transition hover:text-white">
@@ -72,12 +73,12 @@ export default function Footer() {
                 BIG MO Burger Shack
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
-        <div className="flex flex-col gap-3 pt-7 text-xs uppercase tracking-[.14em] text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <Reveal variant="up" delay={120} className="flex flex-col gap-3 pt-7 text-xs uppercase tracking-[.14em] text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} BIG MO. {copy.rights}</p>
           <p>{copy.built}</p>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

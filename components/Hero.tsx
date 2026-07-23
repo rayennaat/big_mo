@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
+import Reveal from "./Reveal";
 
 export default function Hero() {
   const { language } = useLanguage();
@@ -50,7 +51,7 @@ export default function Hero() {
       <div className="absolute inset-0 grid-wall opacity-10" />
 
       <div className="relative mx-auto pb-5 flex min-h-[680px] max-w-7xl items-center px-5 py-20 lg:min-h-[calc(100vh-80px)] lg:px-8">
-        <div className="max-w-4xl reveal-up">
+        <Reveal variant="up" className="max-w-4xl">
           <h1 className="font-display text-[clamp(4rem,12vw,10rem)] uppercase leading-[.78] tracking-[-.06em]">
             Big <span className="neon-text text-moRed">Mo</span>
           </h1>
@@ -80,7 +81,7 @@ export default function Hero() {
             <span>{copy.badges[1]}</span>
             <span>{copy.badges[2]}</span>
           </div>
-        </div>
+        </Reveal>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-5 checkerboard-small" />

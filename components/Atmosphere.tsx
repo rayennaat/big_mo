@@ -12,6 +12,7 @@ import {
 
 import SectionTitle from "./SectionTitle";
 import { useLanguage } from "./LanguageProvider";
+import Reveal from "./Reveal";
 
 const features = [
   {
@@ -70,16 +71,19 @@ export default function Atmosphere() {
       <div className="pointer-events-none absolute -right-44 -top-44 h-[520px] w-[520px] rounded-full border-[90px] border-white/[0.05]" />
 
       <div className="relative mx-auto max-w-7xl">
-        <SectionTitle
-          light
-          eyebrow={copy.eyebrow}
-          title={copy.title}
-          copy={copy.description}
-        />
+        <Reveal variant="up">
+          <SectionTitle
+            light
+            eyebrow={copy.eyebrow}
+            title={copy.title}
+            copy={copy.description}
+          />
+        </Reveal>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-12">
           {/* Main image */}
-          <div className="relative min-h-[560px] overflow-hidden rounded-[2.5rem] border-4 border-moBlack bg-moBlack lg:col-span-7 lg:min-h-[680px]">
+          <Reveal variant="left" className="relative min-h-[560px] lg:col-span-7 lg:h-full lg:min-h-[680px]">
+          <div className="relative min-h-[560px] overflow-hidden rounded-[2.5rem] border-4 border-moBlack bg-moBlack lg:h-full lg:min-h-[680px]">
             <Image
               src="/images/interior.jpg"
               alt="Red booth seating inside BIG MO"
@@ -123,41 +127,41 @@ export default function Atmosphere() {
 
             <div className="checkerboard-small absolute inset-x-0 bottom-0 h-3" />
           </div>
+          </Reveal>
 
           {/* Feature side */}
-          <div className="grid gap-5 lg:col-span-5">
+          <div className="grid gap-5 lg:col-span-5 lg:grid-rows-3">
             {copy.features.map(({ title, copy }, index) => {
               const Icon = features[index].icon;
               const number = features[index].number;
               return (
-                <article
-                  key={title}
-                  className="group relative overflow-hidden rounded-[2rem] border-4 border-moBlack bg-moCream p-6 text-moBlack shadow-card transition duration-300 hover:-translate-y-1 sm:p-7"
-                >
-                  <div className="flex items-start justify-between gap-6">
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-moRed text-white">
-                      <Icon size={22} />
-                    </span>
+                <Reveal key={title} delay={index * 120 + 120} variant="right" className="h-full">
+                  <article
+                    className="group relative h-full overflow-hidden rounded-[2rem] border-4 border-moBlack bg-moCream p-6 text-moBlack shadow-card transition duration-300 hover:-translate-y-1 sm:p-7"
+                  >
+                    <div className="flex items-start justify-between gap-6">
+                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-moRed text-white">
+                        <Icon size={22} />
+                      </span>
 
-                    <span className="font-display text-4xl leading-none text-moRed/40">
-                      {number}
-                    </span>
-                  </div>
+                      <span className="font-display text-4xl leading-none text-moRed/40">
+                        {number}
+                      </span>
+                    </div>
 
-                  <h3 className="mt-7 font-display text-3xl uppercase leading-none sm:text-4xl">
-                    {title}
-                  </h3>
+                    <h3 className="mt-7 font-display text-3xl uppercase leading-none sm:text-4xl">
+                      {title}
+                    </h3>
 
-                  <p className="mt-4 max-w-md leading-7 text-black/60">
-                    {copy}
-                  </p>
+                    <p className="mt-4 max-w-md leading-7 text-black/60">
+                      {copy}
+                    </p>
 
-                  <div className="mt-7 h-px origin-left scale-x-0 bg-moRed transition duration-500 group-hover:scale-x-100" />
-                </article>
+                    <div className="mt-7 h-px origin-left scale-x-0 bg-moRed transition duration-500 group-hover:scale-x-100" />
+                  </article>
+                </Reveal>
               );
             })}
-
-          
           </div>
         </div>
       </div>

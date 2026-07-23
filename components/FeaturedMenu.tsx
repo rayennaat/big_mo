@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { menuItems } from "@/data/menu";
 import { useLanguage } from "./LanguageProvider";
 import MenuCard from "./MenuCard";
+import Reveal from "./Reveal";
 import SectionTitle from "./SectionTitle";
 
 export default function FeaturedMenu() {
@@ -27,13 +28,21 @@ export default function FeaturedMenu() {
       <div className="absolute -left-20 top-20 h-64 w-64 rounded-full border-[28px] border-moRed/10" />
       <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <SectionTitle eyebrow={copy.eyebrow} title={copy.title} copy={copy.description} />
-          <Link href="/menu" className="group inline-flex w-fit items-center gap-3 rounded-full border-2 border-moBlack px-6 py-4 text-sm font-black uppercase tracking-[.14em] transition hover:bg-moBlack hover:text-white">
-            {copy.cta} <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-          </Link>
+          <Reveal variant="left">
+            <SectionTitle eyebrow={copy.eyebrow} title={copy.title} copy={copy.description} />
+          </Reveal>
+          <Reveal variant="right" delay={120}>
+            <Link href="/menu" className="group inline-flex w-fit items-center gap-3 rounded-full border-2 border-moBlack px-6 py-4 text-sm font-black uppercase tracking-[.14em] transition hover:bg-moBlack hover:text-white">
+              {copy.cta} <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
         </div>
         <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-          {menuItems.slice(0, 3).map((item, index) => <MenuCard key={item.name} item={item} index={index} />)}
+          {menuItems.slice(0, 3).map((item, index) => (
+            <Reveal key={item.name} delay={index * 120} variant="up">
+              <MenuCard item={item} index={index} />
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

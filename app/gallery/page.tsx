@@ -2,6 +2,7 @@
 
 import GalleryGrid from "@/components/GalleryGrid";
 import { useLanguage } from "@/components/LanguageProvider";
+import Reveal from "@/components/Reveal";
 import { galleryImages } from "@/data/gallery";
 
 export default function GalleryPage() {
@@ -17,7 +18,7 @@ export default function GalleryPage() {
 
         <div className="relative mx-auto max-w-7xl">
           <div className="mb-14 grid gap-6 border-b border-white/10 pb-10 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div>
+            <Reveal variant="left">
               <p className="text-xs font-black uppercase tracking-[0.32em] text-moYellow">
                 {language === "fr" ? "La collection complete" : "The complete collection"}
               </p>
@@ -26,16 +27,20 @@ export default function GalleryPage() {
                 {language === "fr" ? "Choisis une humeur." : "Pick a mood."}
                 <span className="block text-moRed">{language === "fr" ? "Ouvre une image." : "Open a frame."}</span>
               </h2>
-            </div>
+            </Reveal>
 
-            <p className="max-w-md text-base leading-7 text-white/55">
-              {language === "fr"
-                ? "Choisis une categorie ou ouvre n'importe quelle photo pour explorer le restaurant en plein ecran."
-                : "Select a category or open any photograph to explore the restaurant in fullscreen."}
-            </p>
+            <Reveal variant="right" delay={120}>
+              <p className="max-w-md text-base leading-7 text-white/55">
+                {language === "fr"
+                  ? "Choisis une categorie ou ouvre n'importe quelle photo pour explorer le restaurant en plein ecran."
+                  : "Select a category or open any photograph to explore the restaurant in fullscreen."}
+              </p>
+            </Reveal>
           </div>
 
-          <GalleryGrid images={galleryImages} />
+          <Reveal variant="up">
+            <GalleryGrid images={galleryImages} />
+          </Reveal>
         </div>
       </section>
     </main>

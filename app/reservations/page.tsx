@@ -2,6 +2,7 @@
 
 import { Clock3, Phone } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
+import Reveal from "@/components/Reveal";
 import ReservationForm from "@/components/ReservationForm";
 
 export default function ReservationsPage() {
@@ -16,7 +17,7 @@ export default function ReservationsPage() {
 
         <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           {/* Intro */}
-          <aside className="lg:sticky lg:top-32">
+          <Reveal variant="left" className="lg:sticky lg:top-32">
             <p className="text-xs font-black uppercase tracking-[0.32em] text-moYellow">
               {language === "fr" ? "Choisis ton adresse" : "Choose your branch"}
             </p>
@@ -76,10 +77,12 @@ export default function ReservationsPage() {
               <Phone size={18} />
               {language === "fr" ? "Appeler 70 161 928" : "Call 70 161 928"}
             </a>
-          </aside>
+          </Reveal>
 
           {/* Interactive locations */}
-          <ReservationForm />
+          <Reveal variant="right" delay={120}>
+            <ReservationForm />
+          </Reveal>
         </div>
       </section>
     </main>

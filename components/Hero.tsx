@@ -30,7 +30,7 @@ export default function Hero() {
       
       {/* Background image — higher opacity, burger positioned right-center */}
       <Image
-        src="/images/back0.png"
+        src="/images/back00.png"
         alt="BIG MO signature smash burger"
         fill
         priority

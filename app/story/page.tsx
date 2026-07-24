@@ -31,8 +31,8 @@ export default function StoryPage() {
             <p className="mt-5 text-lg leading-8 text-black/65">{language === "fr" ? "Entre le service rapide, les banquettes, les sauces qui marquent et les plateaux qui arrivent bien chauds, l'idee reste simple: donner a chaque visite une vraie personnalite." : "Between the quick service, the booth seating, the bold sauces, and the trays that arrive hot, the idea stays simple: every visit should feel full of character."}</p>
           </Reveal>
           <Reveal variant="right" delay={120} className="flex justify-center lg:justify-end">
-            <div className="relative aspect-square w-full max-w-[520px] overflow-hidden rounded-[2rem] border-2 border-moBlack shadow-card">
-              <Image src="/images/booth2.jpg" alt="Red booth seating inside BIG MO" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 520px" />
+            <div className="relative aspect-square w-full lg:w-[560px] overflow-hidden rounded-[1.5rem] border-2 border-moBlack shadow-card">
+              <Image src="/images/booth2.jpg" alt="Red booth seating inside BIG MO" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 560px" />
             </div>
           </Reveal>
         </div>

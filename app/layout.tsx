@@ -5,8 +5,8 @@ import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
-  title: "BIG MO — Burger Shack",
-  description: "A bold burger restaurant website built with Next.js and Tailwind CSS.",
+  title: "BIG MO Burger Shack",
+  description: "BIG MO Burger Shack serves bold burgers, loaded sides, and a standout dine-in atmosphere.",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",

@@ -12,16 +12,16 @@ export default function Hero() {
     language === "fr"
       ? {
           description:
-            "De grandes saveurs, des nuits neon et des burgers sans retenue. Bienvenue dans le shack pense pour les vraies envies.",
+            "De grandes saveurs, des nuits neon et des burgers sans retenue. Bienvenue dans le shack pense pour les grosses envies.",
           menu: "Voir le menu",
-          reserve: "Reserver un booth",
-          badges: ["Smash burgers signature", "Frais chaque jour", "Big energy"],
+          reserve: "Reserver une table",
+          badges: ["Smash burgers signature", "Frais chaque jour", "Grosse ambiance"],
         }
       : {
           description:
             "Big flavor, neon nights and unapologetically messy burgers. Welcome to the shack built for serious cravings.",
           menu: "See the menu",
-          reserve: "Reserve a booth",
+          reserve: "Reserve a table",
           badges: ["Signature smash burgers", "Fresh every day", "Big energy"],
         };
 

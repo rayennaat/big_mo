@@ -7,10 +7,10 @@ import { useLanguage } from "./LanguageProvider";
 import Reveal from "./Reveal";
 
 const images = [
-  { src: "/images/signature-burger.jpg", alt: "BIG MO burger and fries", span: "md:col-span-2 md:row-span-2" },
-  { src: "/images/neon-logo.jpg", alt: "BIG MO neon sign", span: "" },
+  { src: "/images/signature-burger.jpg", alt: "BIG MO burger meal photographed in detail", span: "md:col-span-2 md:row-span-2" },
+  { src: "/images/booth2.jpg", alt: "Red booth seating inside BIG MO", span: "" },
   { src: "/images/guest.jpg", alt: "Guest eating at BIG MO", span: "" },
-  { src: "/images/tray.jpg", alt: "Burger tray and shake", span: "md:col-span-2" },
+  { src: "/images/bigmo2.jpg", alt: "Wide interior view inside BIG MO Burger Shack", span: "md:col-span-2" },
 ];
 
 export default function Gallery() {

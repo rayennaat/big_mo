@@ -25,17 +25,18 @@ export default function GalleryPage() {
 
               <h2 className="mt-4 font-display text-5xl uppercase leading-[0.9] sm:text-7xl">
                 {language === "fr" ? "Choisis une humeur." : "Pick a mood."}
-                <span className="block text-moRed">{language === "fr" ? "Ouvre une image." : "Open a frame."}</span>
+                <span className="block text-moRed">{language === "fr" ? "Entre dans l'univers." : "Step into the scene."}</span>
               </h2>
             </Reveal>
 
             <Reveal variant="right" delay={120}>
               <p className="max-w-md text-base leading-7 text-white/55">
                 {language === "fr"
-                  ? "Choisis une categorie ou ouvre n'importe quelle photo pour explorer le restaurant en plein ecran."
-                  : "Select a category or open any photograph to explore the restaurant in fullscreen."}
+                  ? "L'ambiance, la cuisine, les instants."
+                  : "The mood, the food, the moments."}
               </p>
             </Reveal>
+
           </div>
 
           <Reveal variant="up">

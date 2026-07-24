@@ -1,11 +1,11 @@
 import type { StaticImageData } from "next/image";
 
-import signatureBurger from "@/public/images/signature-burger.jpg";
 import tray from "@/public/images/tray.jpg";
 import guest from "@/public/images/guest.jpg";
 
+import back2 from "@/public/images/back2.jpg";
+import back4 from "@/public/images/back4.jpg";
 import booth2 from "@/public/images/booth2.jpg";
-import neonLogo from "@/public/images/neon-logo.jpg";
 import neonWall from "@/public/images/neon-wall.jpg";
 
 import bigmo from "@/public/images/bigmo.jpg";
@@ -14,19 +14,19 @@ import bigmo3 from "@/public/images/bigmo3.jpg";
 import bigmo4 from "@/public/images/bigmo4.jpg";
 import bigmo5 from "@/public/images/bigmo5.jpg";
 
-import mo from "@/public/images/mo.jpg";
-import mo2 from "@/public/images/mo2.jpg";
-
 import galery1 from "@/public/images/galery1.jpg";
 import galery2 from "@/public/images/galery2.jpg";
 import galery3 from "@/public/images/galery3.jpg";
 import galery4 from "@/public/images/galery4.jpg";
 import galery5 from "@/public/images/galery5.jpg";
 import galery6 from "@/public/images/galery6.jpg";
+import galery12 from "@/public/images/galery12.jpg";
 import galery8 from "@/public/images/galery8.jpg";
 import galery9 from "@/public/images/galery9.jpg";
 import galery10 from "@/public/images/galery10.jpg";
 import galery11 from "@/public/images/galery11.jpg";
+import galery15 from "@/public/images/galery15.jpg";
+import galery16 from "@/public/images/galery16.jpg";
 
 import instagramGuest from "@/public/images/ig_bigmo_burgershack_DTF0AXFjKd6_002_image.jpg";
 
@@ -38,22 +38,13 @@ export type GalleryCategory =
   | "moments";
 
 export type GalleryImage = {
-  src: StaticImageData;
+  src: StaticImageData | string;
   alt: string;
   category: GalleryCategory;
+  mediaType?: "image" | "video";
 };
 
 export const galleryImages: GalleryImage[] = [
-  {
-    src: signatureBurger,
-    alt: "BIG MO signature smash burger served with golden fries",
-    category: "food",
-  },
-  {
-    src: neonLogo,
-    alt: "The glowing BIG MO neon burger logo",
-    category: "brand",
-  },
   {
     src: tray,
     alt: "A BIG MO burger meal served on the signature tray",
@@ -70,9 +61,15 @@ export const galleryImages: GalleryImage[] = [
     category: "interior",
   },
   {
-    src: bigmo2,
-    alt: "BIG MO burger photographed up close",
-    category: "food",
+    src: back2,
+    alt: "A BIG MO dining area with checkerboard floors and booth seating",
+    category: "interior",
+  },
+  {
+    src: "/videos/vid0.mp4",
+    alt: "A BIG MO dining room video moment",
+    category: "interior",
+    mediaType: "video",
   },
   {
     src: neonWall,
@@ -90,6 +87,22 @@ export const galleryImages: GalleryImage[] = [
     category: "moments",
   },
   {
+    src: "/videos/vid1.mp4",
+    alt: "A BIG MO food and atmosphere video",
+    category: "moments",
+    mediaType: "video",
+  },
+  {
+    src: bigmo2,
+    alt: "BIG MO burger photographed up close",
+    category: "food",
+  },
+  {
+    src: galery12,
+    alt: "A candid scene from the BIG MO dining room",
+    category: "moments",
+  },
+  {
     src: bigmo3,
     alt: "Freshly prepared BIG MO food",
     category: "food",
@@ -100,9 +113,14 @@ export const galleryImages: GalleryImage[] = [
     category: "moments",
   },
   {
-    src: mo,
-    alt: "BIG MO visual branding detail",
-    category: "brand",
+    src: galery15,
+    alt: "A fresh BIG MO gallery moment inside the restaurant",
+    category: "moments",
+  },
+  {
+    src: galery16,
+    alt: "Another BIG MO interior and dining atmosphere shot",
+    category: "interior",
   },
   {
     src: galery2,
@@ -120,6 +138,12 @@ export const galleryImages: GalleryImage[] = [
     category: "people",
   },
   {
+    src: "/videos/vid2.mp4",
+    alt: "A BIG MO restaurant experience video",
+    category: "moments",
+    mediaType: "video",
+  },
+  {
     src: galery3,
     alt: "BIG MO restaurant atmosphere and interior details",
     category: "moments",
@@ -128,6 +152,11 @@ export const galleryImages: GalleryImage[] = [
     src: bigmo,
     alt: "BIG MO restaurant branding and atmosphere",
     category: "brand",
+  },
+  {
+    src: back4,
+    alt: "A wide interior view inside BIG MO Burger Shack",
+    category: "interior",
   },
   {
     src: galery4,
@@ -145,14 +174,15 @@ export const galleryImages: GalleryImage[] = [
     category: "moments",
   },
   {
-    src: mo2,
-    alt: "BIG MO logo and restaurant branding",
-    category: "brand",
-  },
-  {
     src: galery6,
     alt: "A restaurant detail photographed at BIG MO",
     category: "interior",
+  },
+  {
+    src: "/videos/vid3.mp4",
+    alt: "A BIG MO interior and service video",
+    category: "people",
+    mediaType: "video",
   },
   {
     src: galery8,

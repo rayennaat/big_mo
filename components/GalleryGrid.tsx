@@ -6,6 +6,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Maximize2,
+  Play,
   X,
 } from "lucide-react";
 
@@ -68,20 +69,20 @@ export default function GalleryGrid({
   const filters = language === "fr"
     ? [
         { label: "Tout", value: "all" as const },
-        { label: "Food", value: "food" as const },
+        { label: "Cuisine", value: "food" as const },
         { label: "Interieur", value: "interior" as const },
-        { label: "People", value: "people" as const },
-        { label: "Brand", value: "brand" as const },
+        { label: "Personnes", value: "people" as const },
+        { label: "Marque", value: "brand" as const },
         { label: "Moments", value: "moments" as const },
       ]
     : defaultFilters;
   const categoryLabels: Record<GalleryCategory, string> =
     language === "fr"
       ? {
-          food: "Food",
+          food: "Cuisine",
           interior: "Interieur",
-          people: "People",
-          brand: "Brand",
+          people: "Personnes",
+          brand: "Marque",
           moments: "Moments",
         }
       : defaultCategoryLabels;
@@ -191,24 +192,6 @@ export default function GalleryGrid({
         </div>
       </div>
 
-      {/* Result information */}
-      <div className="mb-7 flex items-center justify-between">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">
-          {filteredImages.length}{" "}
-          {language === "fr"
-            ? filteredImages.length === 1
-              ? "photo"
-              : "photos"
-            : filteredImages.length === 1
-              ? "photograph"
-              : "photographs"}
-        </p>
-
-        <p className="hidden text-xs font-bold uppercase tracking-[0.2em] text-white/30 sm:block">
-          {language === "fr" ? "Selectionne une image pour l'ouvrir" : "Select an image to expand"}
-        </p>
-      </div>
-
       {/* Masonry gallery */}
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4">
         {filteredImages.map((image, index) => (
@@ -223,13 +206,25 @@ export default function GalleryGrid({
             ].join(" ")}
           >
             <article className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] transition duration-500 group-hover:-translate-y-1 group-hover:border-moRed/50 group-hover:shadow-2xl group-hover:shadow-moRed/10">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                placeholder="blur"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="h-auto w-full object-cover transition duration-700 ease-out group-hover:scale-[1.045]"
-              />
+              {image.mediaType === "video" ? (
+                <video
+                  src={image.src as string}
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  preload="metadata"
+                  className="h-auto w-full object-cover transition duration-700 ease-out group-hover:scale-[1.045]"
+                />
+              ) : (
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  placeholder="blur"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="h-auto w-full object-cover transition duration-700 ease-out group-hover:scale-[1.045]"
+                />
+              )}
 
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-transparent opacity-70 transition duration-500 group-hover:opacity-100" />
 
@@ -245,7 +240,7 @@ export default function GalleryGrid({
                 </div>
 
                 <span className="flex h-11 w-11 shrink-0 scale-90 items-center justify-center rounded-full border border-white/20 bg-black/45 opacity-0 backdrop-blur-md transition duration-500 group-hover:scale-100 group-hover:opacity-100">
-                  <Maximize2 size={16} />
+                  {image.mediaType === "video" ? <Play size={16} /> : <Maximize2 size={16} />}
                 </span>
               </div>
 
@@ -306,14 +301,26 @@ export default function GalleryGrid({
             onClick={(event) => event.stopPropagation()}
           >
             <div className="relative h-[72vh] w-full">
-              <Image
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                fill
-                priority
-                sizes="100vw"
-                className="object-contain"
-              />
+              {selectedImage.mediaType === "video" ? (
+                <video
+                  src={selectedImage.src as string}
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  controls
+                  className="h-full w-full object-contain"
+                />
+              ) : (
+                <Image
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-contain"
+                />
+              )}
             </div>
 
             <div className="mt-5 flex w-full max-w-3xl items-start justify-between gap-6 border-t border-white/10 pt-5">

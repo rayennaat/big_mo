@@ -51,11 +51,11 @@ function ExtrasPanel({
       <div className="grid gap-8 p-6 lg:grid-cols-2 lg:p-9">
         <div>
           <p className="text-xs font-black uppercase tracking-[.25em] text-moYellow">
-            {language === "fr" ? "Inclus" : "Included free"}
+            {language === "fr" ? "Inclus" : "Included"}
           </p>
 
           <h3 className="mt-3 font-display text-4xl uppercase">
-            {title} toppings
+            {language === "fr" ? `Toppings ${title}` : `${title} toppings`}
           </h3>
 
           <div className="mt-5 flex flex-wrap gap-2">
@@ -78,7 +78,7 @@ function ExtrasPanel({
 
         <div className="rounded-[1.5rem] bg-[#920012] p-5">
           <p className="text-xs font-black uppercase tracking-[.25em] text-moYellow">
-            Supplements
+            {language === "fr" ? "Supplements" : "Add-ons"}
           </p>
 
           <div className="mt-5 space-y-3">
@@ -110,7 +110,7 @@ export default function MenuExplorer() {
         Burgers: "Burgers",
         Shawarma: "Shawarma",
         Sides: "Accompagnements",
-        Kids: "Kids",
+        Kids: "Enfants",
         Drinks: "Boissons",
         Desserts: "Desserts",
       }

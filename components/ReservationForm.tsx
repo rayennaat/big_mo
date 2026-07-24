@@ -128,7 +128,7 @@ export default function ReservationForm() {
                 className="inline-flex items-center justify-center gap-3 rounded-full border-2 border-moBlack px-6 py-4 text-xs font-black uppercase tracking-[0.16em] transition duration-300 hover:-translate-y-1 hover:bg-moBlack hover:text-white"
               >
                 <ExternalLink size={17} />
-                {language === "fr" ? "Ouvrir l'itineraire" : "Open directions"}
+                {language === "fr" ? "Ouvrir l'itineraire" : "Open in Maps"}
               </a>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function ReservationForm() {
       </div>
 
       <p className="mt-5 text-center text-[10px] font-black uppercase tracking-[0.23em] text-white/45 lg:text-right">
-        {language === "fr" ? "Change d'adresse avec les boutons ci-dessus" : "Switch branches using the buttons above"}
+        {language === "fr" ? "Change d'adresse avec les boutons ci-dessus" : "Switch locations using the buttons above"}
       </p>
     </div>
   );

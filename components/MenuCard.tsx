@@ -15,7 +15,7 @@ export default function MenuCard({ item, index = 0 }: Props) {
         Burgers: "Burgers",
         Shawarma: "Shawarma",
         Sides: "Accompagnements",
-        Kids: "Kids",
+        Kids: "Enfants",
         Drinks: "Boissons",
         Desserts: "Desserts",
       }

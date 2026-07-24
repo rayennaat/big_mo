@@ -2,18 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CircleDot, Sparkles } from "lucide-react";
+import { ArrowRight, CircleDot } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 import Reveal from "./Reveal";
+
+function BurgerAccent() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-[18px] w-[18px] text-moYellow"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 10.5C5.6 7.9 8.2 6 12 6s6.4 1.9 7 4.5" />
+      <path d="M4.5 12.5h15" />
+      <path d="M5.5 15.5h13" />
+      <path d="M6.5 18h11" />
+      <path d="M8.4 9h.01" />
+      <path d="M11.2 8h.01" />
+      <path d="M14 9h.01" />
+    </svg>
+  );
+}
 
 export default function StoryPreview() {
   const { language } = useLanguage();
   const copy = language === "fr"
     ? {
         eyebrow: "Notre histoire",
-        title: "Un burger shack avec une energie de personnage principal.",
-        description: "BIG MO melange le confort d'un diner old-school, le neon, l'energie urbaine et un menu avec une promesse simple: chaque bouchee doit paraitre plus grande que prevu.",
-        features: ["Steaks smash frais", "Sauces faites maison", "Ambiance diner rouge", "Service rapide et sympa"],
+        title: "Un burger shack avec une vraie presence.",
+        description: "BIG MO melange le confort d'un diner old-school, l'energie urbaine et un menu avec une promesse simple: chaque bouchee doit marquer.",
+        features: ["Steaks smash minute", "Sauces faites maison", "Ambiance diner rouge", "Service rapide et chaleureux"],
         cta: "Lire toute l'histoire",
       }
     : {
@@ -44,7 +67,10 @@ export default function StoryPreview() {
           </Reveal>
         </div>
         <Reveal variant="right" delay={120}>
-          <p className="mb-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.3em] text-moYellow"><Sparkles size={15} /> {copy.eyebrow}</p>
+          <p className="mb-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.3em] text-moYellow">
+            <BurgerAccent />
+            {copy.eyebrow}
+          </p>
           <h2 className="font-display text-5xl uppercase leading-[.9] sm:text-6xl lg:text-8xl">{copy.title}</h2>
           <p className="mt-7 max-w-xl text-lg leading-8 text-white/68">{copy.description}</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">

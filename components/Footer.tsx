@@ -12,23 +12,23 @@ export default function Footer() {
     language === "fr"
       ? {
           description:
-            "Un site de restaurant audacieux inspire par BIG MO, ses banquettes rouges, son damier et sa lumiere neon.",
+            "Des burgers audacieux, des accompagnements genereux et une ambiance qui reste en tete.",
           explore: "Explorer",
           story: "Notre histoire",
           reservations: "Reservations",
-          details: "Infos",
+          details: "Coordonnees",
           rights: "Tous droits reserves.",
-          built: "Cree avec Next.js + Tailwind CSS",
+          built: "Site officiel de BIG MO Burger Shack",
         }
       : {
           description:
-            "A bold, frontend-only restaurant website template inspired by BIG MO's red booths, checker tiles and neon glow.",
+            "Bold burgers, loaded sides, and a dine-in atmosphere that sticks with you.",
           explore: "Explore",
           story: "Our story",
           reservations: "Reservations",
           details: "Details",
           rights: "All rights reserved.",
-          built: "Built with Next.js + Tailwind CSS",
+          built: "Official website of BIG MO Burger Shack",
         };
 
   return (

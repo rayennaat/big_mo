@@ -31,8 +31,8 @@ export default function ReservationsPage() {
 
             <p className="mt-7 max-w-lg text-lg leading-8 text-white/75">
               {language === "fr"
-                ? "Choisis le BIG MO le plus proche, appelle-nous pour reserver ton booth ou ouvre Google Maps pour l'itineraire."
-                : "Select your nearest BIG MO location, call us to reserve your booth, or open Google Maps for directions."}
+                ? "Choisis le BIG MO le plus proche, appelle-nous pour reserver ta table ou ouvre Google Maps pour l'itineraire."
+                : "Select your nearest BIG MO location, call us to reserve your table, or open Google Maps for directions."}
             </p>
 
             {/* Opening hours shown only once */}
@@ -41,18 +41,18 @@ export default function ReservationsPage() {
                 <Clock3 size={20} className="text-moYellow" />
 
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-moYellow">
-                  {language === "fr" ? "Horaires — les deux adresses" : "Opening hours — both locations"}
+                  {language === "fr" ? "Horaires des deux adresses" : "Opening hours for both locations"}
                 </p>
               </div>
 
               <div className="mt-6 space-y-4">
                 <div className="flex items-end justify-between gap-5">
                   <span className="text-sm font-black uppercase tracking-[0.12em] text-white/65">
-                    {language === "fr" ? "Lundi–Samedi" : "Monday–Saturday"}
+                    {language === "fr" ? "Lundi au samedi" : "Monday to Saturday"}
                   </span>
 
                   <span className="font-display text-2xl sm:text-3xl">
-                    11:30–00:00
+                    11:30 - 00:00
                   </span>
                 </div>
 
@@ -64,7 +64,7 @@ export default function ReservationsPage() {
                   </span>
 
                   <span className="font-display text-2xl text-moYellow sm:text-3xl">
-                    11:30–01:00
+                    11:30 - 01:00
                   </span>
                 </div>
               </div>

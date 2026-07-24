@@ -40,16 +40,16 @@ export default function Atmosphere() {
   const copy = language === "fr"
     ? {
         eyebrow: "Plus qu'un repas",
-        title: "Installe-toi. Monte le son.",
-        description: "Banquettes rouges, enseignes lumineuses et energie de fin de soiree font de BIG MO bien plus qu'un simple burger spot.",
+        title: "Installe-toi. Laisse monter l'ambiance.",
+        description: "Banquettes rouges, enseignes lumineuses et energie de fin de soiree font de BIG MO bien plus qu'une simple adresse a burgers.",
         intro: "Viens avec faim. Reste un peu.",
-        heading: "Ton booth t'attend.",
-        reserve: "Reserver un booth",
-        footnote: "Deux adresses · Une seule ambiance BIG",
+        heading: "Ta table t'attend.",
+        reserve: "Reserver une table",
+        footnote: "Deux adresses, une seule ambiance BIG",
         features: [
-          { title: "Confort frais", copy: "Plateaux chauds, buns beurres et burgers prepares pour cette premiere bouchee parfaite." },
-          { title: "Big energy", copy: "Neon, banquettes rouges et une ambiance qui reste vivante jusque tard dans la nuit." },
-          { title: "Plans faciles", copy: "Passe pour un repas rapide ou viens avec toute l'equipe pour prendre ton booth." },
+          { title: "Confort gourmand", copy: "Plateaux chauds, buns dores et burgers prepares pour cette premiere bouchee parfaite." },
+          { title: "Grosse ambiance", copy: "Neon, banquettes rouges et une salle qui reste vivante jusque tard dans la nuit." },
+          { title: "Plans faciles", copy: "Passe pour un repas rapide ou viens avec toute l'equipe pour prendre ta table." },
         ],
       }
     : {
@@ -57,9 +57,9 @@ export default function Atmosphere() {
         title: "Pull up. Turn it up.",
         description: "Red booths, glowing signs and late-night energy make BIG MO more than another burger stop.",
         intro: "Come hungry. Stay awhile.",
-        heading: "Your booth is waiting.",
-        reserve: "Reserve a booth",
-        footnote: "Two locations · One BIG atmosphere",
+        heading: "Your table is waiting.",
+        reserve: "Reserve a table",
+        footnote: "Two locations, one BIG atmosphere",
         features,
       };
 
@@ -86,7 +86,7 @@ export default function Atmosphere() {
           <div className="relative min-h-[560px] overflow-hidden rounded-[2.5rem] border-4 border-moBlack bg-moBlack lg:h-full lg:min-h-[680px]">
             <Image
               src="/images/interior.jpg"
-              alt="Red booth seating inside BIG MO"
+              alt="Red booth seating and dining area inside BIG MO"
               fill
               className="object-cover object-center transition duration-1000 hover:scale-[1.025]"
               sizes="(max-width: 1024px) 100vw, 58vw"

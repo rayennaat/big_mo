@@ -2,9 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Archivo_Black } from "next/font/google";
 import { ArrowRight, Star } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 import Reveal from "./Reveal";
+
+const archivoBlack = Archivo_Black({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default function Hero() {
   const { language } = useLanguage();
@@ -52,7 +58,7 @@ export default function Hero() {
 
       <div className="relative mx-auto pb-5 flex min-h-[680px] max-w-7xl items-center px-5 py-20 lg:min-h-[calc(100vh-80px)] lg:px-8">
         <Reveal variant="up" className="max-w-4xl">
-          <h1 className="font-display text-[clamp(4rem,12vw,10rem)] uppercase leading-[.78] tracking-[-.06em]">
+          <h1 className={`${archivoBlack.className} text-[clamp(3.2rem,10vw,8rem)] uppercase leading-[.78] tracking-[-.06em]`}>
             Big <span className="neon-text text-moRed">Mo</span>
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-8 text-white/78 sm:text-xl">

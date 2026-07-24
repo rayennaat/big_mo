@@ -1,5 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Archivo_Black } from "next/font/google";
+
+const archivoBlack = Archivo_Black({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default function Logo() {
   return (
@@ -19,7 +25,7 @@ export default function Logo() {
         />
       </span>
 
-      <span className="font-display text-2xl uppercase tracking-[0.16em] text-white">
+      <span className={`${archivoBlack.className} text-2xl uppercase tracking-[0.06em] text-white`}>
         BIG MO
       </span>
     </Link>

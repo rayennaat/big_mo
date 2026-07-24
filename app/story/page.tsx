@@ -30,8 +30,10 @@ export default function StoryPage() {
             <p className="mt-7 text-lg leading-8 text-black/65">{language === "fr" ? "BIG MO est pense comme une adresse ou l'on vient autant pour l'envie d'un bon burger que pour l'ambiance qui va avec. Les recettes restent directes, gourmandes et genereuses, tandis que la salle garde cette energie rouge et neon qui transforme un simple repas en vrai moment a partager." : "BIG MO is built as the kind of place people come to for more than just a burger. The food stays direct, indulgent, and generous, while the room carries that red-and-neon energy that turns a casual meal into something people want to linger over and share."}</p>
             <p className="mt-5 text-lg leading-8 text-black/65">{language === "fr" ? "Entre le service rapide, les banquettes, les sauces qui marquent et les plateaux qui arrivent bien chauds, l'idee reste simple: donner a chaque visite une vraie personnalite." : "Between the quick service, the booth seating, the bold sauces, and the trays that arrive hot, the idea stays simple: every visit should feel full of character."}</p>
           </Reveal>
-          <Reveal variant="right" delay={120} className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border-4 border-moBlack shadow-card">
-            <Image src="/images/mo.jpg" alt="Guest enjoying a meal at BIG MO" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+          <Reveal variant="right" delay={120} className="flex justify-center lg:justify-end">
+            <div className="relative aspect-square w-full max-w-[520px] overflow-hidden rounded-[2rem] border-2 border-moBlack shadow-card">
+              <Image src="/images/booth2.jpg" alt="Red booth seating inside BIG MO" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 520px" />
+            </div>
           </Reveal>
         </div>
       </section>
